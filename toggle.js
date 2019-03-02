@@ -31,4 +31,4 @@ Test.Init(function(error){
 	}else{
 		console.log("There was an issue initializing the token");
 	}
-});
+}, __dirname + "/config.json");

@@ -29,8 +29,13 @@ function TCPConnected(host) {
 	this._host = host;
 	this._hasToken = 0;
 };
-TCPConnected.prototype.Init = function(cb){
-	this.LoadToken(cb);
+/**
+ * Try to load token 
+ * @param  {Function} cb   call back on token loaded
+ * @param  {string}   file token path
+ */
+TCPConnected.prototype.Init = function(cb, file){
+	this.LoadToken(cb, file);
 }
 TCPConnected.prototype.GWEnd = function(){
 	tcpSocket.end(); 
@@ -63,7 +68,7 @@ TCPConnected.prototype.GWRequest = function(payload,cb){
 		tcpSocket.write(payload);
 	}
 }
-TCPConnected.prototype.SyncGateway = function(cb){
+TCPConnected.prototype.SyncGateway = function(cb, file){
 	var myuuid = uuid.v4();
 	var username = myuuid;
 	var password = myuuid;
@@ -97,7 +102,7 @@ TCPConnected.prototype.SyncGateway = function(cb){
 				xml(data,function(error,result){	
 					if(result['token'] != undefined){
 						this._token = result['token'];
-						nconf.use('file', { file: __dirname + '/config.json' });
+						nconf.use('file', { file: file });
 						nconf.set('token', this._token);
 						nconf.save(function (err) {
 							if (err) {
@@ -116,8 +121,8 @@ TCPConnected.prototype.SyncGateway = function(cb){
 	
 	tcpSocket.write(payload);
 }
-TCPConnected.prototype.LoadToken = function(cb){
-	nconf.use('file', { file: __dirname + '/config.json' });
+TCPConnected.prototype.LoadToken = function(cb, file){
+	nconf.use('file', { file: file });
 	nconf.load();
 	if(nconf.get('token') != undefined){
 		this._token = nconf.get('token');
@@ -126,7 +131,7 @@ TCPConnected.prototype.LoadToken = function(cb){
 	}else{
 		console.log("No Token Saved. Attempting to Connect With Gateway to Get Token.");
 		console.log("Button On Gateway Must Be Pressed Prior to This.");
-		this.SyncGateway(cb);
+		this.SyncGateway(cb, file);
 	}
 }
 TCPConnected.prototype.GetState = function (cb){
