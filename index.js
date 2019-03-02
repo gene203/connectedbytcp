@@ -97,7 +97,7 @@ TCPConnected.prototype.SyncGateway = function(cb){
 				xml(data,function(error,result){	
 					if(result['token'] != undefined){
 						this._token = result['token'];
-						nconf.use('file', { file: './config.json' });
+						nconf.use('file', { file: __dirname + '/config.json' });
 						nconf.set('token', this._token);
 						nconf.save(function (err) {
 							if (err) {
@@ -117,7 +117,7 @@ TCPConnected.prototype.SyncGateway = function(cb){
 	tcpSocket.write(payload);
 }
 TCPConnected.prototype.LoadToken = function(cb){
-	nconf.use('file', { file: './config.json' });
+	nconf.use('file', { file: __dirname + '/config.json' });
 	nconf.load();
 	if(nconf.get('token') != undefined){
 		this._token = nconf.get('token');
