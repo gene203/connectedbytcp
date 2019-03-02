@@ -1,6 +1,6 @@
 {
 	"name": "connectedbytcp",
-	"version": "0.0.7.1",
+	"version": "0.0.8",
 	"author": {
 		"name": "Gene Park",
 		"email": "gene203@gmail.com"
@@ -20,6 +20,6 @@
 		"node-uuid": "*"
 	},
 	"readmeFilename": "README.md",
-	"_id": "connectedbytcp@0.0.7.1",
+	"_id": "connectedbytcp@0.0.8",
 	"description": "Connected by TCP client"
 }

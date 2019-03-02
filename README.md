@@ -1,7 +1,7 @@
 Connected by TCP Node.js Control
 =================================
 
-Version 0.0.7.1
+Version 0.0.8
 
 Support the multi-packet answers
 Support the command line arguments for the gateway ip and the room name
