@@ -1,19 +1,25 @@
 {
-  "name": "connectedbytcp",
-  "version": "0.0.7",
-  "author": {
-    "name": "stockmopar",
-    "email": "git@stockmopar.com"
-  },
-  "main": "connectedbytcp",
-  "dependencies": {
-	"util": "*",
-	"libxml-to-js": "*",
-	"events": "*",
-	"nconf": "*",
-	"node-uuid": "*"
-  },
-  "readmeFilename": "README.md",
-  "_id": "connectedbytcp@0.0.7", 
-  "description": "Connected by TCP client"
+	"name": "connectedbytcp",
+	"version": "0.0.7.1",
+	"author": {
+		"name": "Gene Park",
+		"email": "gene203@gmail.com"
+	},
+  "contributions": [
+	{
+		"name": "stockmopar",
+		"email": "git@stockmopar.com"
+	}
+	],
+	"main": "connectedbytcp",
+	"dependencies": {
+		"util": "*",
+		"libxml-to-js": "*",
+		"events": "*",
+		"nconf": "*",
+		"node-uuid": "*"
+	},
+	"readmeFilename": "README.md",
+	"_id": "connectedbytcp@0.0.7.1",
+	"description": "Connected by TCP client"
 }

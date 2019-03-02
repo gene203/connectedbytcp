@@ -1,7 +1,10 @@
 Connected by TCP Node.js Control
 =================================
- 
-[![PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NKVWX2AJRLDT2)
+
+Version 0.0.7.1
+
+Support the multi-packet answers
+Support the command line arguments for the gateway ip and the room name
 
 Version 0.0.7
 
@@ -24,3 +27,6 @@ http://home.stockmopar.com/updated-connected-by-tcp-api/
 You can now install using npm package manager using the following command:
 ```sh
 npm install connectedbytcp
+
+Donate the original author
+[![PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NKVWX2AJRLDT2)
