@@ -50,11 +50,13 @@ TCPConnected.prototype.GWRequest = function(payload,cb){
 			},
 			rejectUnauthorized: false,
 			agent: false
-		};
+		}, buffers = [];
 		
 		tcpSocket = https.request(options, function(res) {
-			res.on('data', function(data){
-				cb(data);
+			res.on('data', function(packet){
+				buffers[buffers.length] = packet;
+			}).on('close', function(){
+				cb(Buffer.concat(buffers));
 			});
 		});
 		
@@ -80,11 +82,14 @@ TCPConnected.prototype.SyncGateway = function(cb){
 		},
 		rejectUnauthorized: false,
 		agent: false
-	};
+	}, buffers = [];
 	
 	tcpSocket = https.request(options, function(res) {
-		res.on('data', function(data){
-			process.stdout.write(data);
+		res.on('data', function(packet){
+			buffers[buffers.length] = packet;
+		}).on('close', function(){
+			var data = Buffer.concat(buffers);
+			//process.stdout.write(data);
 			if(data == "<gip><version>1</version><rc>404</rc></gip>"){
 				console.log("Permission Denied: Gateway Not In Sync Mode. Press Button on Gateway to Sync.");
 				cb(1);
@@ -105,6 +110,7 @@ TCPConnected.prototype.SyncGateway = function(cb){
 					}
 				});
 			}
+
 		});
 	});
 	
