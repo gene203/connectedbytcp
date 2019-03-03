@@ -32,10 +32,10 @@ function TCPConnected(host) {
 /**
  * Try to load token 
  * @param  {Function} cb   call back on token loaded
- * @param  {string}   file token path
+ * @param  {string}   file token path. "./config.json" will be used if not given
  */
 TCPConnected.prototype.Init = function(cb, file){
-	this.LoadToken(cb, file);
+	this.LoadToken(cb, file || "./config.json");
 }
 TCPConnected.prototype.GWEnd = function(){
 	tcpSocket.end(); 
