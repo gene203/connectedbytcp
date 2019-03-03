@@ -22,7 +22,7 @@
 
 You can now install using npm package manager using the following command:
 ```sh
-npm install connectedbytcp
+npm install https://github.com/gene203/connectedbytcp
 ```
 
 ## More information
